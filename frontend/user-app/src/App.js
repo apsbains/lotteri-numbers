@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Number Generator</h1>
+      <h1>Write the users name</h1>
       <UserForm setUser={setUser} fetchNumbers={fetchNumbers} />
       {user && (
         <>

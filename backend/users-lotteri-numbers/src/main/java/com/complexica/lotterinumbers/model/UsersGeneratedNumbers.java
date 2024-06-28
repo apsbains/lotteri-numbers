@@ -10,8 +10,10 @@ public class UsersGeneratedNumbers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     @ElementCollection
     private List<Integer> numbers;
+    
     private LocalDateTime generatedAt;
 
     @ManyToOne
