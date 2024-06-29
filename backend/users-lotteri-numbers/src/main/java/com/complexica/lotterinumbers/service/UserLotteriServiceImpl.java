@@ -25,11 +25,12 @@ public class UserLotteriServiceImpl implements UserLotteriService {
     @Autowired
     private UsersGeneratedNumberRepository generatedNumberRepository;
 
-    public UsersGeneratedNumbers generatedNumber(String name) throws UserNotFoundException {
+    public UsersGeneratedNumbers generatedNumber(String name) {
 
         User user = userRepository.findByNameIgnoreCase(name.trim())
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
 
+        //TODO: Move to own function.
         List<Integer> numbers = IntStream.rangeClosed(1, 45).boxed().collect(Collectors.toList());
         Collections.shuffle(numbers);
         List<Integer> generatedNumbers = numbers.subList(0, 6).stream().sorted().collect(Collectors.toList());
